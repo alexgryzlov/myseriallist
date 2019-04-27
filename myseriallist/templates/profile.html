@@ -1,0 +1,7 @@
+{% extends "general.html" %}
+{% block content %}
+    <h1>{{ user.username }}</h1>
+    <div>
+        <a href="{{ url_for('serial_list', username=user.username) }}">Serial List</a>
+    </div>
+{% endblock content %}
