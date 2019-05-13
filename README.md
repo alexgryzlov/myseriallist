@@ -11,11 +11,7 @@ __I've used couple of flask extensions:__
   * [Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/) (integration of Flask and WTForms) : 
   * [Flask-Login](https://flask-login.readthedocs.io/en/latest/) (user session management for Flask) : 
 ```
-$ pip3 install flask
-$ pip3 install sqlalchemy
-$ pip3 install flask-sqlalchemy
-$ pip3 install flask-wtf
-$ pip3 install flask-login
+$ pip install -r requirements.txt
 ```
 ## About
 __Right now there are several features:__
