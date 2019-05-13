@@ -7,7 +7,7 @@ $ python3 run.py
 ```
 ## Requirements
 __I've used couple of flask extensions:__
-  * [Flask-SQLAlchemyMarkup](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) (support for SQLAlchemy) : 
+  * [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) (support for SQLAlchemy) : 
   * [Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/) (integration of Flask and WTForms) : 
   * [Flask-Login](https://flask-login.readthedocs.io/en/latest/) (user session management for Flask) : 
 ```
