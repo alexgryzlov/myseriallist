@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     {% if title %}
-        <title> {{ title }} | MySerialList</title>
+    <title> {{ title }} | MySerialList</title>
     {% else %}
-        <title>MySerialList</title>
+    <title>MySerialList</title>
     {% endif %}
 </head>
 <nav class="one">
-  <ul>
-    <li><a href="{{ url_for('home') }}">Home</a></li>
-    <li><a href="{{ url_for('about') }}">About</a></li>
-    {% if current_user.is_authenticated %}
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
-            <li><a href="{{ url_for('profile', username=current_user.username) }}">Profile</a></li>
-            <li><a href="{{ url_for('add_serial') }}">Wanna help? You can add serial to the database</a></li>
-    {% else %}
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
-    {% endif %}
-  </ul>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li><a href="{{ url_for('profile', username=current_user.username) }}">Profile</a></li>
+        <li><a href="{{ url_for('add_serial') }}">Wanna help? You can add serial to the database</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
+    </ul>
 </nav>
 <body>
-    {% block content %}{% endblock content %}
+{% block content %}{% endblock content %}
 </body>
 </html>

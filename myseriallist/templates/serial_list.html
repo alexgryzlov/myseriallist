@@ -1,12 +1,12 @@
 {% extends "general.html" %}
 {% block content %}
-    {% for serial in serials %}
-    <fieldset>
-        <h2><a href="{{ url_for('serial', serial_id=serial.serial_id) }}">{{ serial_data[serial.serial_id].title }}</a></h2>
-        <p>Series {{ serial_data[serial.serial_id].series_number }}</p>
-        <p>{{ serial_data[serial.serial_id].description }}</p>
-        <p>Series watched {{ serial.series_watched }} </p>
-        <p>{{ serial.watch_status }}</p>
-    </fieldset>
-    {% endfor %}
+{% for serial in serials %}
+<fieldset>
+    <h2><a href="{{ url_for('serial', serial_id=serial.serial_id) }}">{{ serial_data[serial.serial_id].title }}</a></h2>
+    <p>Series {{ serial_data[serial.serial_id].series_number }}</p>
+    <p>{{ serial_data[serial.serial_id].description }}</p>
+    <p>Series watched {{ serial.series_watched }} </p>
+    <p>{{ serial.watch_status }}</p>
+</fieldset>
+{% endfor %}
 {% endblock content %}

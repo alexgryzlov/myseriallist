@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, SelectField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from myseriallist.models import User, Serial
+
+from myseriallist.models import User
 
 
 class RegistrationForm(FlaskForm):
@@ -12,13 +13,14 @@ class RegistrationForm(FlaskForm):
 
     submit = SubmitField('Sign Up')
 
-    def validate_username(self, username):
+    @staticmethod
+    def validate_username(username):
         user = User.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError("Username already exists")
 
-
-    def validate_email(self, email):
+    @staticmethod
+    def validate_email(email):
         email = User.query.filter_by(username=email.data).first()
         if email:
             raise ValidationError("Email already exists")
@@ -33,9 +35,7 @@ class LoginForm(FlaskForm):
 
 
 class SerialForm(FlaskForm):
-
-
-    watch_status = SelectField("Watch Status", choices=[("plan", "Plan to Watch") , ("hold", "On Hold"),
+    watch_status = SelectField("Watch Status", choices=[("plan", "Plan to Watch"), ("hold", "On Hold"),
                                                         ("watch", "Watching"), ("drop", "Dropped")])
     add_to_list = SubmitField('Add to List')
     update = SubmitField("Update")
@@ -47,10 +47,3 @@ class AddSerialForm(FlaskForm):
     series_number = IntegerField('Series number', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=0, max=1000)])
     submit = SubmitField('Add')
-
-#
-# class SerialListForm(FlaskForm):
-#     watch_status = SelectField("Watch Status", choices=[("drop", "Dropped"), ("hold", "On Hold"), ("watch", "Watching"),
-#                                                         ("plan", "Plan to Watch")])
-#     series_watched = IntegerField('Series Watched', validators=[DataRequired()])
-
