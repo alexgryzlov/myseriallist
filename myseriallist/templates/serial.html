@@ -1,0 +1,30 @@
+{% extends "general.html" %}
+{% block content %}
+    <form method="POST" action="">
+        <h2>{{ serial.title }}</h2>
+        <p>Total series: {{ serial.series_number }}</p>
+        <p>{{ serial.description }}</p>
+        {% if current_user.is_authenticated %}
+            {{ form.hidden_tag() }}
+            {% if added %}
+            <div>
+                <p>
+                    {{ form.watch_status.label }}
+                    {{ form.watch_status }}
+                </p>
+                <p>
+                    {{ form.series_watched(size=1) }} / {{ serial.series_number }}
+                </p>
+                <p>
+                    {{ form.update }}
+                </p>
+
+            </div>
+            {% else %}
+            <div>
+                {{ form.add_to_list }}
+            </div>
+            {% endif %}
+        {% endif %}
+    </form>
+{% endblock content %}
