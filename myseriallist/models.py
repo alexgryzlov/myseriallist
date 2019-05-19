@@ -1,5 +1,6 @@
-from myseriallist import db, login_manager
 from flask_login import UserMixin
+
+from myseriallist import db, login_manager
 
 
 @login_manager.user_loader
@@ -21,9 +22,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
 
-
     def get_id(self):
-           return (self.user_id)
+        return self.user_id
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
@@ -34,5 +34,3 @@ class Serial(db.Model):
     title = db.Column(db.String(100), nullable=False)
     series_number = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text)
-
-

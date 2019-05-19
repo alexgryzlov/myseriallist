@@ -1,25 +1,25 @@
 {% extends "general.html" %}
 {% block content %}
-    <div>
-        <form method="POST" action="">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <div>
-                    {{ form.username.label }}
-                    {{ form.username }}
-                </div>
-                <div>
-                    {{ form.password.label }}
-                    {{ form.password }}
-                </div>
-                <div class="form-check">
-                    {{ form.remember(class="form-check-input") }}
-                    {{ form.remember.label(class="form-check-input") }}
-                </div>
-            </fieldset>
+<div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
             <div>
-                {{ form.submit }}
+                {{ form.username.label }}
+                {{ form.username }}
             </div>
-        </form>
-    </div>
+            <div>
+                {{ form.password.label }}
+                {{ form.password }}
+            </div>
+            <div class="form-check">
+                {{ form.remember(class="form-check-input") }}
+                {{ form.remember.label(class="form-check-input") }}
+            </div>
+        </fieldset>
+        <div>
+            {{ form.submit }}
+        </div>
+    </form>
+</div>
 {% endblock content %}

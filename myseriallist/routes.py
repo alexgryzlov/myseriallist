@@ -1,8 +1,9 @@
 from flask import render_template, url_for, redirect, request, abort
+from flask_login import login_user, logout_user, current_user, login_required
+
 from myseriallist import app, db
 from myseriallist.forms import RegistrationForm, LoginForm, SerialForm, AddSerialForm
 from myseriallist.models import User, Serial, Connection
-from flask_login import login_user, logout_user, current_user, login_required
 
 
 @app.route("/")
@@ -114,4 +115,5 @@ def serial_list(username):
     serial_data = {}
     for serial in serials:
         serial_data[serial.serial_id] = Serial.query.filter_by(serial_id=serial.serial_id).first()
-    return render_template('serial_list.html', title=username + '\'s Serial List', serials=serials, serial_data=serial_data)
+    return render_template('serial_list.html', title=username + '\'s Serial List', serials=serials,
+                           serial_data=serial_data)

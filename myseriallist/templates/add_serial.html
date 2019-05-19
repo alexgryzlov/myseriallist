@@ -1,26 +1,26 @@
 {% extends "general.html" %}
 {% block content %}
-    <h1>This is my add serial page</h1>
-    <div>
-        <form method="POST" action="">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <div>
-                    {{ form.title.label }}
-                    {{ form.title }}
-                </div>
-                <div>
-                    {{ form.series_number.label }}
-                    {{ form.series_number }}
-                </div>
-                <div>
-                    {{ form.description.label }}
-                    {{ form.description }}
-                </div>
-            </fieldset>
+<h1>This is my add serial page</h1>
+<div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
             <div>
-                {{ form.submit() }}
+                {{ form.title.label }}
+                {{ form.title }}
             </div>
-        </form>
-    </div>
+            <div>
+                {{ form.series_number.label }}
+                {{ form.series_number }}
+            </div>
+            <div>
+                {{ form.description.label }}
+                {{ form.description }}
+            </div>
+        </fieldset>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+</div>
 {% endblock content %}
